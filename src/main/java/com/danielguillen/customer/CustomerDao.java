@@ -7,7 +7,7 @@ public interface CustomerDao {
     List<Customer> selectAllCustomers();
     Optional<Customer> selectcustomerById(Integer id);
     void insertCustomer(Customer customer);
-    Optional<Customer> existsPersonWithEmail(String email);
+    boolean existsPersonWithEmail(String email);
     boolean existsPersonWithId(Integer customerId);
     void deleteCustomerById(Integer customerId);
     void updateCustomer(Customer update);
