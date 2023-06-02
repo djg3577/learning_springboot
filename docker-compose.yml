@@ -27,8 +27,22 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
     depends_on:
       - db
+  springboot-api:
+    container_name: springboot-api
+    image: djg3577/springboot-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/customer
+    ports:
+      - "8088:8080"
+    networks:
+      - postgres
+    depends_on:
+      - db
+    restart: unless-stopped
+
 
 networks:
   postgres:
