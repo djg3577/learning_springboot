@@ -31,6 +31,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Slack commit message and sha
+        run: >
+          curl -X POST -H 'Content-type': application/json'
+          --data '{"text": github:"https://github.com/amigoscode/full-stack-professional/commit/5668511db3fc52ae6a2418f7f09153d6f54fd923/${{github.sha}} - ${{github.event.head_commit.message}}"}'
+          ${{ secrets.SLACK_WEBHOOK_URL}}
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
